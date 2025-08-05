@@ -1,0 +1,10 @@
+12:39:04 **** Incremental Build of configuration Debug for project freeRTOS_trainig ****
+make -j12 all 
+arm-none-eabi-size  freeRTOS_trainig.elf 
+   text	   data	    bss	    dec	    hex	filename
+    656	      0	   1568	   2224	    8b0	freeRTOS_trainig.elf
+Finished building: default.size.stdout
+ 
+
+12:39:04 Build Finished. 0 errors, 0 warnings. (took 141ms)
+

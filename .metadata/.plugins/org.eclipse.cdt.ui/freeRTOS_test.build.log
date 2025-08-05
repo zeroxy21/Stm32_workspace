@@ -1,0 +1,44 @@
+12:54:56 **** Incremental Build of configuration Debug for project freeRTOS_test ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'Game':
+../Core/Src/main.c:321:47: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+  321 |     HAL_UART_Transmit(&huart2, (uint8_t*)msg, strlen(msg), HAL_MAX_DELAY);
+      |                                               ^~~~~~
+../Core/Src/main.c:22:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   21 | #include "cmsis_os.h"
+  +++ |+#include <string.h>
+   22 | 
+../Core/Src/main.c:321:47: warning: incompatible implicit declaration of built-in function 'strlen' [-Wbuiltin-declaration-mismatch]
+  321 |     HAL_UART_Transmit(&huart2, (uint8_t*)msg, strlen(msg), HAL_MAX_DELAY);
+      |                                               ^~~~~~
+../Core/Src/main.c:321:47: note: include '<string.h>' or provide a declaration of 'strlen'
+../Core/Src/main.c:358:15: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
+  358 |               sprintf(score_msg, "Good! Score: %d\r\n", score);
+      |               ^~~~~~~
+../Core/Src/main.c:22:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+   21 | #include "cmsis_os.h"
+  +++ |+#include <stdio.h>
+   22 | 
+../Core/Src/main.c:358:15: warning: incompatible implicit declaration of built-in function 'sprintf' [-Wbuiltin-declaration-mismatch]
+  358 |               sprintf(score_msg, "Good! Score: %d\r\n", score);
+      |               ^~~~~~~
+../Core/Src/main.c:358:15: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+../Core/Src/main.c:370:7: warning: incompatible implicit declaration of built-in function 'sprintf' [-Wbuiltin-declaration-mismatch]
+  370 |       sprintf(end_msg, "Game Over. Final score: %d\r\n", score);
+      |       ^~~~~~~
+../Core/Src/main.c:370:7: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+arm-none-eabi-gcc -o "freeRTOS_test.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/agheles/Documents/Ensea/year 1/Stm32_workspace/freeRTOS_test/STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="freeRTOS_test.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: freeRTOS_test.elf
+ 
+arm-none-eabi-size  freeRTOS_test.elf 
+arm-none-eabi-objdump -h -S freeRTOS_test.elf  > "freeRTOS_test.list"
+   text	   data	    bss	    dec	    hex	filename
+  26384	     96	   6072	  32552	   7f28	freeRTOS_test.elf
+Finished building: default.size.stdout
+ 
+Finished building: freeRTOS_test.list
+ 
+
+12:54:56 Build Finished. 0 errors, 5 warnings. (took 906ms)
+
